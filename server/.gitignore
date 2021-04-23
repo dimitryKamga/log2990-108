@@ -1,7 +1,7 @@
 # Exclusion des dépendences du projet. Elles peuvent être regénérées 
 # automatiquement.
 .nyc_output/
-node_modules/
+
 false/
 
 # Exclusion des fichiers Javascripts

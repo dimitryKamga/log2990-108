@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="container-text">
+        <h1 alt="Bienvenue sur PolyDessin">{{ title }}</h1>
+
+        <button (click)="editor()">Créer un nouveau dessin</button>
+        <button (click)="openCarrouselModal()">Ouvrir le carrousel de dessins</button>
+        <button *ngIf="continueDrawing" (click)="continue()">Continuer un dessin</button>
+    </div>
+</div>

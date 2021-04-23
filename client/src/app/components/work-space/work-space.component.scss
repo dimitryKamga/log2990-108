@@ -1,0 +1,18 @@
+app-surface-resizer {
+    position: absolute;
+    background-color: black;
+    border: 2px solid #000000;
+}
+
+div {
+    width: 97%;
+    height: 97%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.drawing {
+    display: grid;
+    width: min-content;
+    outline: none;
+}

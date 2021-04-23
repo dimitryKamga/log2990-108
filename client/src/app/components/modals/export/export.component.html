@@ -1,0 +1,51 @@
+<div class="main">
+    <h1>Options d'exportation</h1>
+    <div>
+        <div class="sub-section">
+            <form>
+                <mat-form-field>
+                    <mat-label class="text">Titre</mat-label>
+                    <input matInput [(ngModel)]="this.title" (input)="setTitle($event)" [ngModelOptions]="{ standalone: true }" />
+                    <mat-hint> Le nom du fichier ne doit pas contenir d'espaces (3 lettres minimum) </mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Filtres</mat-label>
+                <mat-select name="filterList" [(ngModel)]="filter">
+                    <mat-option *ngFor="let filter of exportFilters" [value]="filter" (click)="setFilter(filter)">{{ filter }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Formats</mat-label>
+                <mat-select name="formatList" [(ngModel)]="format">
+                    <mat-option *ngFor="let format of exportFormats" [value]="format" (click)="setFormat(format)">{{ format }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Modes</mat-label>
+                <mat-select name="exportModeList" [(ngModel)]="exportMode">
+                    <mat-option *ngFor="let mode of exportModes" [value]="mode" (click)="setExportMode(mode)">{{ mode }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="sub-section">
+            <h5>Aperçu</h5>
+            <div id="preview">
+                <img id="image" [src]="imagesrc" *ngIf="imagesrc !== ''" />
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <div mat-dialog-actions>
+        <button mat-raised-button id="cancel" (click)="resetSubscribers()" mat-dialog-close>Annuler</button>
+        <button mat-raised-button id="confirm" *ngIf="this.exportMode === 'EXPORTER'" (click)="exportConfirmation()">Exporter en local</button>
+        <button mat-raised-button id="confirm" *ngIf="this.exportMode === 'TELEVERSER'" (click)="exportConfirmation()">Televerser sur Imgur</button>
+    </div>
+
+</div>

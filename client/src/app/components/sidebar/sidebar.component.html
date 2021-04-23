@@ -1,0 +1,145 @@
+<div class="sidebar">
+    <div class="featuresIcons sidebarSection">
+        <mat-icon type="radio" id="home-page" class="material-icons" (click)="goBack()" matTooltip="Page D'acceuil">home</mat-icon>
+        <mat-icon type="radio" id="new-drawing" class="material-icons" matTooltip="Nouveau Dessin (Ctrl + O)" (click)="newDrawing()">add</mat-icon>
+        <mat-icon class="material-icons" matTooltip="Carrousel de Dessin (Ctrl + G)" (click)="openCarrouselModal()">collections</mat-icon>
+        <mat-icon class="material-icons" matTooltip="Sauvegarder Dessin (Ctrl + S)" (click)="openSavingModal()">save</mat-icon>
+        <mat-icon class="material-icons" matTooltip="Exporter Dessin (Ctrl + E)" (click)="openExportModal()">save_alt</mat-icon>
+    </div>
+
+    <div class="undo-redo-section">
+        <button mat-raised-button [disabled]="!this.canUndo" matTooltip="Annuler (Ctrl + Z)" (click)="this.undo()">
+            <mat-icon class="undo-redo">undo </mat-icon>
+        </button>
+        <button mat-raised-button [disabled]="!this.canRedo" matTooltip="Refaire (Ctrl + Shift Z)" (click)="this.redo()">
+            <mat-icon class="undo-redo">redo</mat-icon>
+        </button>
+    </div>
+
+    <div class="toolsIcons sidebarSection">
+        <input
+            type="radio"
+            [id]="toolLabels.PENCIL"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.PENCIL)"
+        />
+        <label [for]="toolLabels.PENCIL">
+            <mat-icon class="fas fa-pencil-alt" matTooltip="Crayon (C)"></mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.ERASER"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.ERASER)"
+        />
+        <label [for]="toolLabels.ERASER">
+            <mat-icon class="fas fa-eraser" matTooltip="Efface (E)"></mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.BUCKET"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.BUCKET)"
+        />
+        <label [for]="toolLabels.BUCKET">
+            <mat-icon class="fas fa-fill-drip" matTooltip="Sceau de Couleur (B)"></mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.EYE_DROPPER"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.EYE_DROPPER)"
+        />
+        <label [for]="toolLabels.EYE_DROPPER">
+            <mat-icon class="fas fa-eye-dropper" matTooltip="Pipette (I)"></mat-icon>
+        </label>
+
+        <input type="radio" [id]="toolLabels.SPRAY" name="tool" (change)="onToolSwitch($event)" [checked]="currentTool.includes(toolLabels.SPRAY)" />
+        <label [for]="toolLabels.SPRAY">
+            <mat-icon class="fas fa-spray-can" matTooltip="Aérosol (A)"></mat-icon>
+        </label>
+
+        <input type="radio" [id]="toolLabels.STAMP" name="tool" (change)="onToolSwitch($event)" [checked]="currentTool.includes(toolLabels.STAMP)" />
+        <label [for]="toolLabels.STAMP">
+            <mat-icon class="fas fa-stamp" matTooltip="Etampe (D)"></mat-icon>
+        </label>
+
+        <input type="radio" [id]="toolLabels.TEXT" name="tool" (change)="onToolSwitch($event)" [checked]="currentTool.includes(toolLabels.TEXT)" />
+        <label [for]="toolLabels.TEXT">
+            <mat-icon class="fas fa-font" matTooltip="Texte (T)"></mat-icon>
+        </label>
+
+        <input type="radio" [id]="toolLabels.LINE" name="tool" (change)="onToolSwitch($event)" [checked]="currentTool.includes(toolLabels.LINE)" />
+        <label [for]="toolLabels.LINE">
+            <mat-icon class="material-icons" matTooltip="Ligne (L)">timeline</mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.ELLIPSE"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.ELLIPSE)"
+        />
+        <label [for]="toolLabels.ELLIPSE">
+            <mat-icon class="far fa-circle" matTooltip="Ellipse (2)"></mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.RECTANGLE"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.RECTANGLE)"
+        />
+        <label [for]="toolLabels.RECTANGLE">
+            <mat-icon class="far fa-square" matTooltip="Rectangle (1)"></mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.POLYGON"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.POLYGON)"
+        />
+        <label [for]="toolLabels.POLYGON">
+            <mat-icon class="material-icons" matTooltip="Polygon (3)">change_history</mat-icon>
+        </label>
+
+        <input type="radio" [id]="toolLabels.LASSO" name="tool" (change)="onToolSwitch($event)" [checked]="currentTool.includes(toolLabels.LASSO)" />
+        <label [for]="toolLabels.LASSO">
+            <mat-icon class="fas fa-draw-polygon" matTooltip="Sélection par Lasso (V)"></mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.ELLIPSE_SELECTION"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.ELLIPSE_SELECTION)"
+        />
+        <label [for]="toolLabels.ELLIPSE_SELECTION">
+            <mat-icon class="material-icons" matTooltip="Sélection par Ellipse (S)">vignette</mat-icon>
+        </label>
+
+        <input
+            type="radio"
+            [id]="toolLabels.RECTANGLE_SELECTION"
+            name="tool"
+            (change)="onToolSwitch($event)"
+            [checked]="currentTool.includes(toolLabels.RECTANGLE_SELECTION)"
+        />
+        <label [for]="toolLabels.RECTANGLE_SELECTION">
+            <mat-icon class="fas fa-vector-square" matTooltip="Sélection par Rectangle (R)"></mat-icon>
+        </label>
+    </div>
+    <div class="bottom sidebarSection"></div>
+</div>

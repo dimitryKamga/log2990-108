@@ -1,0 +1,18 @@
+<div class="section">
+    <h2 mat-dialog-title>{{ title }}</h2>
+    <mat-dialog-content class="mat-typography">
+        <p>{{ question }}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button [mat-dialog-close]="false" id="cancel">{{ cancel }}</button>
+        <button
+            mat-raised-button
+            [mat-dialog-close]="true"
+            id="new-drawing"
+            (click)="resetDrawing(true)"
+            cdkFocusInitial
+        >
+            {{ confirm }}
+        </button>
+    </mat-dialog-actions>
+</div>

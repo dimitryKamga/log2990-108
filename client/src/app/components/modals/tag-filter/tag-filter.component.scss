@@ -1,0 +1,17 @@
+.sub-section {
+    margin-right: -20px;
+    margin-bottom: 9.8%;
+
+    mat-form-field {
+        width: 80%;
+    }
+}
+
+::ng-deep .warning {
+    background: rgb(238, 196, 196);
+    color: red;
+}
+
+mat-hint {
+    font-size: smaller;
+}

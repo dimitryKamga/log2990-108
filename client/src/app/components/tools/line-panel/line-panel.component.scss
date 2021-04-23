@@ -1,0 +1,56 @@
+#lineAttributes {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+
+.thickness {
+    margin-top: -10%;
+    margin-bottom: -4%;
+}
+
+.junction-options {
+    margin-top: -10%;
+    margin-bottom: -4%;
+}
+
+mat-form-field {
+    width: 40px;
+    height: 5px;
+    margin-left: 175px;
+    margin-top: -200px;
+    user-select: none;
+}
+mat-card {
+    background-color: rgb(214, 209, 209);
+    size: 20px;
+    width: 205px;
+    margin-bottom: 1%;
+}
+
+.no-select {
+    color: #424263;
+    margin-left: 30px;
+    font-size: 17px;
+    margin: 5px;
+    font-weight: bold;
+    margin-bottom: 15%;
+    margin-top: 10%;
+}
+
+h2 {
+    color: #424263;
+    margin-left: 30px;
+    font-size: 20px;
+    margin: 5px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid#424263;
+    width: 100%;
+    margin: 0;
+}

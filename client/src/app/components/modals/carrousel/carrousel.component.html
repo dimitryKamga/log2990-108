@@ -1,0 +1,93 @@
+<button class="close-button" mat-mini-fab (click)="closeCarrousel()">
+    <mat-icon>close</mat-icon>
+</button>
+
+<h1>Carrousel de dessins</h1>
+<app-tag-filter (tagsChanged)="getDrawingsByTags($event)"></app-tag-filter>
+<div class="main">
+    <div *ngIf="!hasDrawings">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="this.metasDatabase.length > 0 && hasDrawings">
+        <div *ngIf="metasFiltered.length > 2" class="mat-image">
+            <button class="chev previous" (click)="onPrevious()">
+                <span class="arrow left"></span>
+            </button>
+            <ng-container *ngFor="let position of imageIndexes; let imageIndex = index">
+                <mat-card
+                    class="image-card"
+                    [id]="imageIndex"
+                    (click)="onImagePreview(imageIndex)"
+                    [ngClass]="{ 'drawing-interest': imageIndex === indexOfInterest, 'mat-child': imageIndex != indexOfInterest }"
+                >
+                    <mat-card-title>{{ metasFiltered[position].name }}</mat-card-title>
+                    <div *ngIf="loadTagArray(metasFiltered[position])">
+                        Tags:
+                        <mat-hint *ngFor="let tag of metasFiltered[position].tags">
+                            {{ tag }}
+                        </mat-hint>
+                    </div>
+                    <img class="image-data" mat-card-image [src]="BASE_URL + metasFiltered[position].filename" />
+                    <mat-card-actions>
+                        <button *ngIf="imageIndex === indexOfInterest" id="delete" mat-button (click)="deleteImage()">Supprimer</button>
+                    </mat-card-actions>
+                </mat-card>
+            </ng-container>
+            <button class="chev next" (click)="onNext()">
+                <span class="arrow right"></span>
+            </button>
+        </div>
+
+        <div *ngIf="metasFiltered.length === 2" class="mat-image">
+            <mat-card-actions>
+                <button class="chev previous" (click)="onPreviewTwoDrawings()">
+                    <span class="arrow left"></span>
+                </button>
+            </mat-card-actions>
+            <ng-container *ngFor="let position of imageIndexes; let imageIndex = index">
+                <mat-card
+                    class="image-card"
+                    [id]="imageIndex"
+                    (click)="onImagePreview(imageIndex)"
+                    [ngClass]="{ 'drawing-interest': imageIndex === indexOfInterest, 'mat-child': imageIndex != indexOfInterest }"
+                >
+                    <mat-card-title>{{ metasFiltered[position].name }}</mat-card-title>
+                    <div *ngIf="loadTagArray(metasFiltered[position])">
+                        Tags:
+                        <mat-hint *ngFor="let tag of metasFiltered[position].tags">
+                            {{ tag }}
+                        </mat-hint>
+                    </div>
+                    <img class="image-data" mat-card-image [src]="BASE_URL + metasFiltered[position].filename" />
+                    <mat-card-actions>
+                        <button *ngIf="imageIndex === indexOfInterest" id="delete" mat-button (click)="deleteImage()">Supprimer</button>
+                    </mat-card-actions>
+                </mat-card>
+            </ng-container>
+            <mat-card-actions>
+                <button class="chev next" (click)="onPreviewTwoDrawings()">
+                    <span class="arrow right"></span>
+                </button>
+            </mat-card-actions>
+        </div>
+
+        <div *ngIf="metasFiltered.length === 1" class="mat-image">
+            <mat-card class="image-card" (click)="loadImageOfInterest(0)">
+                <mat-card-title>{{ metasFiltered[0].name }}</mat-card-title>
+                <div *ngIf="loadTagArray(metasFiltered[0])">
+                    Tags:
+                    <mat-hint *ngFor="let tag of metasFiltered[0].tags">
+                        {{ tag }}
+                    </mat-hint>
+                </div>
+                <img class="image-data" img mat-card-image [src]="BASE_URL + metasFiltered[0].filename" />
+                <mat-card-actions>
+                    <button id="delete" mat-button (click)="deleteImage()">Supprimer</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <mat-hint *ngIf="metasFiltered.length === 0">Aucune image trouvée. Veuillez sauvegarder une image avec un tag et essayer à nouveau.</mat-hint>
+    &nbsp;
+</div>

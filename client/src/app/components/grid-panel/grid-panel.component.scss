@@ -1,0 +1,38 @@
+mat-card {
+    background-color: rgb(214, 209, 209);
+    size: 20px;
+    width: 205px;
+}
+.no-select {
+    margin-bottom: -6%;
+}
+.grid-section {
+    margin-bottom: -4%;
+    margin-top: -8%;
+}
+.opacity-section {
+    margin-top: -4%;
+}
+.square-section {
+    margin-top: -4%;
+    width: 22%;
+}
+
+h2 {
+    color: #424263;
+    margin-left: 30px;
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+}
+mat-form-field {
+    width: 40px;
+    height: 5px;
+    margin-left: 175px;
+    margin-top: -200px;
+    margin-bottom: 0%;
+    user-select: none;
+}
+mat-slide-toggle {
+    margin-bottom: 2%;
+}

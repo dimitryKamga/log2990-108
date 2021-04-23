@@ -1,0 +1,16 @@
+<div id="eraser-Attributes">
+    <h2 class="tool-name">{{ name }}</h2>
+    <hr />
+    <mat-card>
+        <form [formGroup]="eraserForm">
+            <div class="thickness">
+                <p class="no-select">Épaisseur:</p>
+                <app-tool-slider [min]="5" [max]="50" [step]="1" [value]="thickness" (valueChange)="setThickness($event)"></app-tool-slider>
+                <mat-form-field>
+                    <input readonly matInput formControlName="thicknessFormField" />
+                    <span matSuffix>px</span>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
+</div>

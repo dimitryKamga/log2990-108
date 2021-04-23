@@ -1,0 +1,6 @@
+<div class="drawing-container" #drawingContainer>
+    <app-drawing class="drawing" tabindex="0"></app-drawing>
+    <app-surface-resizer [style]="getResizerStyle(resizerLocation.RIGHT)" [resizerLocation]="resizerLocation.RIGHT"></app-surface-resizer>
+    <app-surface-resizer [style]="getResizerStyle(resizerLocation.CORNER)" [resizerLocation]="resizerLocation.CORNER"></app-surface-resizer>
+    <app-surface-resizer [style]="getResizerStyle(resizerLocation.BOTTOM)" [resizerLocation]="resizerLocation.BOTTOM"></app-surface-resizer>
+</div>

@@ -1,0 +1,30 @@
+<div class="sub-section">
+    <h5>Filtrage par etiquettes</h5>
+    <mat-form-field>
+        <mat-label class="text">Rechercher une étiquette</mat-label>
+
+        <mat-chip-list #taglist>
+            <form class="tag-section">
+                <input
+                    #tagInput
+                    matInput
+                    type="text"
+                    placeholder="Ajouter les étiquettes"
+                    [formControl]="input"
+                    [matChipInputFor]="taglist"
+                    [matChipInputSeparatorKeyCodes]="keyCodeSeparator"
+                    (matChipInputTokenEnd)="addTag($event)"
+                />
+            </form>
+
+            <mat-chip *ngFor="let tag of tags" [selectable]="true" [removable]="true" (removed)="removeTag(tag)">
+                {{ tag }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+        <mat-hint>
+            L'étiquette ne doit pas contenir d'espaces (6 étiquettes maximum). Appuyez sur la touche "Enter" de votre clavier pour effectuer une
+            recherche.
+        </mat-hint>
+    </mat-form-field>
+</div>

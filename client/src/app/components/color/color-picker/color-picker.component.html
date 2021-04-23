@@ -1,0 +1,68 @@
+<mat-radio-group class="radio-section">
+    <table>
+        <tr>
+            <td>Primaire</td>
+
+            <mat-slider
+                class="color-opacity"
+                thumbLabel
+                [min]="0.1"
+                step="0.1"
+                [max]="1"
+                [(ngModel)]="this.primaryOpacity"
+                (change)="setOpacity($event, this.PRIMARY)"
+            ></mat-slider>
+
+            <td>
+                <input
+                    #mainColor
+                    id="type-color"
+                    type="color"
+                    [(ngModel)]="this.primaryColor"
+                    (change)="selectColor($event.target.value, this.PRIMARY)"
+                />
+            </td>
+
+            <td rowspan="2">
+                <button mat-raised-button>
+                    <mat-icon (click)="invertColors()">swap_vert</mat-icon>
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Secondaire</td>
+
+            <mat-slider
+                class="color-opacity"
+                thumbLabel
+                [min]="0.1"
+                step="0.1"
+                [max]="1"
+                [(ngModel)]="this.secondaryOpacity"
+                (change)="setOpacity($event, this.SECONDARY)"
+            ></mat-slider>
+
+            <td>
+                <input
+                    #secColor
+                    id="type-color"
+                    type="color"
+                    [(ngModel)]="this.secondaryColor"
+                    (change)="selectColor($event.target.value, this.SECONDARY)"
+                />
+            </td>
+        </tr>
+    </table>
+</mat-radio-group>
+
+<p class="text">Couleurs récentes</p>
+<div class="previews-color-container">
+    <div
+        class="color-preview"
+        (mousedown)="chooseColorFromHistory($event, color)"
+        (contextmenu)="chooseColorFromHistory($event, color)"
+        [ngStyle]="{ 'background-color': color }"
+        *ngFor="let color of colorHistory"
+    ></div>
+</div>

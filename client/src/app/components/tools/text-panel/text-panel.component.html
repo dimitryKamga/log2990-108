@@ -1,0 +1,54 @@
+<div id="textAttributes">
+    <h2 class="toolName">{{ name }}</h2>
+    <hr />
+
+    <mat-card>
+        <form [formGroup]="textForm">
+            <div class="size">
+                <p>Taille:</p>
+                <app-tool-slider [min]="15" [max]="100" [step]="1" [value]="textSize" (valueChange)="changeSize($event)"></app-tool-slider>
+
+                <mat-form-field class="size-form">
+                    <input readonly matInput formControlName="sizeFormField" />
+                    <span matSuffix>px</span>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
+    <mat-card>
+        <div class="alignment">
+            <p class="no-select">Alignement</p>
+
+            <mat-button-toggle-group #group="matButtonToggleGroup">
+                <mat-button-toggle value="start" (change)="this.setAlignment($event.value)" checked>
+                    <mat-icon>format_align_left</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="center" (change)="this.setAlignment($event.value)">
+                    <mat-icon>format_align_center</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="end" (change)="this.setAlignment($event.value)">
+                    <mat-icon>format_align_right</mat-icon>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </mat-card>
+    <mat-card>
+        <p class="no-select">Police</p>
+        <mat-form-field appearance="fill">
+            <mat-select (selectionChange)="this.changeFont($event.value)" [value]="GEORGIA">
+                <mat-option [value]="GEORGIA">Georgia</mat-option>
+                <mat-option [value]="TIMES_NEW_ROMAN">Times New Roman</mat-option>
+                <mat-option [value]="ARIAL">Arial</mat-option>
+                <mat-option [value]="COURIER">Courier</mat-option>
+                <mat-option [value]="VERDANA">Verdana</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+        <p class="no-select">Style</p>
+
+        <p><mat-checkbox #value (change)="this.setItalic(value.checked)">Italique </mat-checkbox></p>
+        <p><mat-checkbox #gras (change)="this.setBold(gras.checked)">Gras</mat-checkbox></p>
+    </mat-card>
+</div>

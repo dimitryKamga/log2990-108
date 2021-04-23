@@ -1,0 +1,31 @@
+<mat-card>
+    <h2 class="no-select">Grille</h2>
+    <form [formGroup]="gridForm">
+        <p class="no-select">
+            Activée
+            <mat-slide-toggle (change)="setGridEnabler()" [checked]="this.gridService.isEnabled" formControlName="activeToggleForm" #activeToggle>
+            </mat-slide-toggle>
+        </p>
+        <br />
+        <div class="grid-section" *ngIf="this.gridService.isEnabled">
+            <p>Taille des carrés:</p>
+            <app-tool-slider
+                [min]="5"
+                [max]="150"
+                [step]="1"
+                [value]="gridService.squareSize"
+                (valueChange)="setSquaresize($event)"
+            ></app-tool-slider>
+            <mat-form-field class="square-section">
+                <input readonly matInput formControlName="squareSizeFormField" />
+                <span matSuffix>px</span>
+            </mat-form-field>
+            <p>Opacité:</p>
+            <app-tool-slider [min]="40" [max]="100" [step]="1" [value]="this.opacity" (valueChange)="setOpacity($event)"></app-tool-slider>
+            <mat-form-field class="opacity-section">
+                <input readonly matInput formControlName="opacityFormField" />
+                <span matSuffix>%</span>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-card>

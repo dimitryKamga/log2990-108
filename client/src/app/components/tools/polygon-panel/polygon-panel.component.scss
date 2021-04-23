@@ -1,0 +1,63 @@
+#polygon-attributes {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+
+mat-checkbox {
+    margin: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+.thickness {
+    margin-top: -10%;
+    margin-bottom: -4%;
+}
+.number-of-sides {
+    margin-top: -10%;
+    margin-bottom: -4%;
+}
+#style {
+    text-align: center;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #424263;
+    width: 100%;
+    margin: 0;
+}
+
+mat-form-field {
+    width: 40px;
+    height: 5px;
+    margin-left: 175px;
+    margin-top: -200px;
+    user-select: none;
+}
+mat-card {
+    background-color: rgb(214, 209, 209);
+    size: 20px;
+    width: 205px;
+    margin-bottom: 1%;
+}
+
+h2 {
+    color: #424263;
+    margin-left: 30px;
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid#424263;
+    width: 100%;
+    margin: 0;
+}

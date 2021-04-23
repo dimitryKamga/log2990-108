@@ -1,0 +1,38 @@
+<div id="lineAttributes">
+    <h2 class="tool-name">{{ this.name }}</h2>
+    <hr />
+    <mat-card>
+        <form [formGroup]="lineForm">
+            <div class="thickness">
+                <p>Épaisseur:</p>
+                <app-tool-slider [min]="1" [max]="50" [step]="1" [value]="thickness" (valueChange)="setThickness($event)"></app-tool-slider>
+                <mat-form-field>
+                    <input readonly matInput formControlName="thicknessFormField" />
+                    <span matSuffix>px</span>
+                </mat-form-field>
+            </div>
+
+            <div class="junction">
+                <p class="no-select">
+                    Points de jonction
+                    <mat-slide-toggle (change)="onChangeJonctionOption($event)" [checked]="this.isJunction" #slideToggle></mat-slide-toggle>
+                </p>
+                <div class="junction-options" *ngIf="this.isJunction">
+                    <p>Diamètre des points:</p>
+                    <app-tool-slider
+                        title="Jonction"
+                        [min]="1"
+                        [max]="60"
+                        [step]="1"
+                        [value]="dotRadius"
+                        (valueChange)="setDotRadius($event)"
+                    ></app-tool-slider>
+                    <mat-form-field>
+                        <input readonly matInput formControlName="junctionFormField" />
+                        <span matSuffix>px</span>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

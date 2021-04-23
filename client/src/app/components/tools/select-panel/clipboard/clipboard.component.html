@@ -1,0 +1,18 @@
+<mat-card>
+    <h2>Presse-papier</h2>
+    <div class="clipboard-section">
+        <button mat-raised-button [disabled]="!this.canCopy" matTooltip="Copier (Ctrl + C)" (click)="copy()">
+            <img src="../../../../assets/select-icons/copy.svg" alt="Copier" />
+        </button>
+
+        <button mat-raised-button [disabled]="!this.canPaste" matTooltip="Coller (Ctrl + V)" (click)="paste()">
+            <img src="../../../../assets/select-icons/paste.svg" alt="Coller" />
+        </button>
+        <button mat-raised-button [disabled]="!this.canCut" matTooltip="Couper (Ctrl + X)" (click)="cut()">
+            <img src="../../../../assets/select-icons/cut.svg" alt="Couper" />
+        </button>
+        <button mat-raised-button [disabled]="!this.canDelete" matTooltip="Supprimer (DELETE)" (click)="delete()">
+            <img src="../../../../assets/select-icons/delete.svg" alt="Supprimer" />
+        </button>
+    </div>
+</mat-card>

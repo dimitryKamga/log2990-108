@@ -1,0 +1,14 @@
+<mat-card>
+    <main>
+        <header (click)="this.isExpanded = !this.isExpanded">
+            <h2 id="text">
+                <td>
+                    Couleurs
+                    <mat-icon>color_lens</mat-icon>
+                    <mat-icon>unfold_more</mat-icon>
+                </td>
+            </h2>
+        </header>
+        <app-color-picker *ngIf="isExpanded"></app-color-picker>
+    </main>
+</mat-card>

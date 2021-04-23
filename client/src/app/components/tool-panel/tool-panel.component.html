@@ -1,0 +1,22 @@
+<div class="tools-panel">
+    <div class="container" *ngIf="toolManagementService.selectedTool">
+        <app-pencil-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.PENCIL"></app-pencil-panel>
+        <app-rectangle-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.RECTANGLE"></app-rectangle-panel>
+        <app-line-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.LINE"></app-line-panel>
+        <app-ellipse-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.ELLIPSE"></app-ellipse-panel>
+        <app-polygon-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.POLYGON"></app-polygon-panel>
+        <app-eraser-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.ERASER"></app-eraser-panel>
+        <app-eye-dropper-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.EYE_DROPPER"></app-eye-dropper-panel>
+        <app-stamp-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.STAMP"></app-stamp-panel>
+        <app-text-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.TEXT"></app-text-panel>
+        <app-spray-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.SPRAY"></app-spray-panel>
+        <app-select-rectangle-panel
+            *ngIf="toolManagementService.selectedTool.name === this.toolLabels.RECTANGLE_SELECTION"
+        ></app-select-rectangle-panel>
+        <app-select-ellipse-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.ELLIPSE_SELECTION"></app-select-ellipse-panel>
+        <app-select-lasso-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.LASSO"></app-select-lasso-panel>
+        <app-bucket-panel *ngIf="toolManagementService.selectedTool.name === this.toolLabels.BUCKET"></app-bucket-panel>
+    </div>
+    <div class="color-section"><app-color-panel></app-color-panel></div>
+    <div class="grid-section"><app-grid-panel></app-grid-panel></div>
+</div>

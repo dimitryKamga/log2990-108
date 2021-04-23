@@ -1,0 +1,28 @@
+<div id="ellipse-attributes">
+    <h2 class="tool-name">{{ name }}</h2>
+    <hr />
+    <mat-card>
+        <form [formGroup]="ellipseForm">
+            <div class="thickness">
+                <p>Épaisseur:</p>
+                <app-tool-slider [min]="1" [max]="50" [step]="1" [value]="thickness" (valueChange)="setThickness($event)"></app-tool-slider>
+                <mat-form-field>
+                    <input readonly matInput formControlName="thicknessFormField" />
+                    <span matSuffix>px</span>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card>
+    <mat-card>
+        <h2 id="style">Tracé</h2>
+        <p>
+            <mat-radio-button (change)="setStyle(0)" [checked]="style == 0"> Contour</mat-radio-button>
+        </p>
+        <p>
+            <mat-radio-button (change)="setStyle(1)" [checked]="style == 1">Plein</mat-radio-button>
+        </p>
+        <p>
+            <mat-radio-button (change)="setStyle(2)" [checked]="style == 2">Plein avec Contour</mat-radio-button>
+        </p>
+    </mat-card>
+</div>

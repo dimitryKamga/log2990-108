@@ -1,0 +1,25 @@
+canvas {
+    border: 2px solid #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#canvas {
+    z-index: 0;
+    background-color: white;
+}
+
+#previewLayer {
+    z-index: 1;
+    background-color: transparent;
+}
+
+#gridLayer {
+    z-index: 2;
+    background-color: transparent;
+}
+
+#canvas-container {
+    position: relative;
+}

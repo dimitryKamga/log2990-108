@@ -1,0 +1,56 @@
+<div class="saving">
+    <h1>Sauvegarde en ligne</h1>
+    <div class="option-section">
+        <div class="sub-section">
+            <div class="details">
+                <form class="info">
+                    <mat-form-field id="title">
+                        <mat-label class="text">Titre</mat-label>
+                        <input matInput [(ngModel)]="this.title" (input)="setTitle($event)" [ngModelOptions]="{ standalone: true }" />
+                        <mat-hint> Le nom du fichier ne doit pas contenir d'espaces (3 à 10 lettres) </mat-hint>
+                    </mat-form-field>
+                </form>
+            </div>
+            <mat-form-field>
+                <mat-label>Formats</mat-label>
+                <mat-select name="formatList" [(ngModel)]="format">
+                    <mat-option *ngFor="let format of exportFormats" [value]="format" (click)="setFormat(format)">{{ format }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="sub-section">
+            <h5>Étiquettes</h5>
+            <form class="tag-section">
+                <mat-form-field>
+                    <mat-label class="text">Ajouter une étiquette</mat-label>
+                    <input [(ngModel)]="tagName" [ngModelOptions]="{ standalone: true }" matInput />
+                    <mat-hint>
+                        L'étiquette ne doit pas contenir d'espaces (3 à 10 lettres/ 6 étiquettes maximum). Les étiquettes seront transformées en
+                        lettres majuscules.
+                    </mat-hint>
+                </mat-form-field>
+                <button mat-button id="add" class="add-tag-button" (click)="addTag(tagName)">Ajouter</button>
+            </form>
+            <mat-chip-list>
+                <mat-chip *ngFor="let tag of tags" [selectable]="true" [removable]="true" (removed)="removeTag(tag)">
+                    {{ tag }}
+                    <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <br />
+        <div
+            class="icon"
+            [matTooltip]="
+                'Le titre doit avoir de 3 à 16 caractères et peut contenir des lettres, des chiffres, des espaces et des tirets (-). Les étiquettes doivent avoir de 3 à 16 caractères et peut contenir des lettres, . Maximum 6 étiquettes.'
+            "
+            matTooltipPosition="below"
+        ></div>
+        <br />
+
+        <div class="button-section">
+            <button mat-raised-button id="cancel" (click)="resetSubscribers()" mat-dialog-close>Annuler</button>
+            <button mat-raised-button id="confirm" *ngIf="!isSaving" class="confirm-button" (click)="save()">Sauvegarder</button>
+        </div>
+    </div>
+</div>

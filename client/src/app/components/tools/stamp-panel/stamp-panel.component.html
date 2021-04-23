@@ -1,0 +1,44 @@
+<div class="stamp-Attributes">
+    <h2 class="tool-name">{{ name }}</h2>
+    <hr />
+    <div>
+        <mat-card>
+            <form [formGroup]="stampForm">
+                <div class="stamp-choice">
+                    <p>Choix D'étampe:</p>
+                    <mat-button-toggle-group [value]="stampChoice" (change)="setStampChoice($event)">
+                        <mat-button-toggle *ngFor="let path of stampIconsPath; let i = index" [value]="stampChoices[i]">
+                            <img [src]="path" class="icons"
+                        /></mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <mat-form-field id="stamp-choice">
+                        <input readonly matInput formControlName="stampChoiceFormField" />
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card>
+        <mat-card>
+            <form [formGroup]="stampForm">
+                <div class="angle">
+                    <p>Angle:</p>
+                    <app-tool-slider [min]="0" [max]="360" [step]="15" [value]="stampAngle" (valueChange)="setAngle($event)"></app-tool-slider>
+                    <mat-form-field id="angle">
+                        <input readonly matInput formControlName="angleFormField" />
+                        <span matSuffix>°</span>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card>
+        <mat-card>
+            <form [formGroup]="stampForm">
+                <div class="size">
+                    <p>Facteur d'échelle:</p>
+                    <app-tool-slider [min]="1" [max]="10" [step]="0.5" [value]="stampSize" (valueChange)="setSize($event)"></app-tool-slider>
+                    <mat-form-field id="size">
+                        <input readonly matInput formControlName="sizeFormField" />
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

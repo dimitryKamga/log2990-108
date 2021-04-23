@@ -1,0 +1,93 @@
+.image-card {
+    width: 250px;
+    height: 350px;
+}
+
+.image-data {
+    width: 250px;
+    height: 250px;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+}
+
+mat-card-title {
+    font-size: 20px;
+}
+
+mat-hint {
+    font-size: small;
+}
+
+.mat-image {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.drawing-interest {
+    border: 3px solid #424263;
+    cursor: pointer;
+}
+
+#delete {
+    color: red;
+    background-color: rgb(253, 230, 234);
+    align-items: center;
+    margin-left: 32.25%;
+}
+
+.close-button {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-top: 0px;
+    margin-right: 20px;
+    cursor: pointer;
+    float: right;
+}
+
+h1 {
+    color: #424263;
+    text-align: center;
+    font-size: 40px;
+}
+
+.arrow {
+    display: block;
+    border-left: 0.1em solid #424263;
+    border-bottom: 0.1em solid #424263;
+    width: 0.4em;
+    height: 0.4em;
+
+    &.left {
+        transform: rotate(45deg);
+    }
+    &.right {
+        transform: rotate(230deg);
+    }
+}
+
+.chev {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    user-select: none;
+    padding: 0.8em;
+    color: #424263;
+    font-weight: bold;
+    outline: 0;
+    background-color: transparent;
+    font-size: 40px;
+    opacity: 80%;
+}
+
+::ng-deep .warning {
+    background: rgb(238, 196, 196);
+    color: red;
+}

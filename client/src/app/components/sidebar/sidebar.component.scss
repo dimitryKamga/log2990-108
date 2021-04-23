@@ -1,0 +1,87 @@
+.sidebar {
+    height: 100%;
+    width: 100px;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    display: flex;
+    background-color: #424263;
+    overflow: auto;
+    overflow-y: scroll;
+    user-select: none;
+}
+
+.sidebar-section {
+    display: flex;
+    height: 100%;
+}
+
+button {
+    padding: 0px 0px;
+    background-color: #e2e20e;
+    .undo-redo {
+        color: black;
+    }
+}
+.undo-redo-section {
+    align-items: center;
+    flex-flow: column;
+    display: flex;
+}
+
+.tab {
+    margin-left: 2.5em;
+}
+
+.material-icons {
+    cursor: pointer;
+    padding: 7px;
+    color: #f5f5f5;
+}
+
+.toolsIcons label {
+    display: block;
+    align-items: center;
+}
+
+.toolsIcons label:hover {
+    background-color: #424263;
+    .material-icons {
+        color: black;
+    }
+}
+
+.sidebar-section {
+    display: flex;
+    height: 100%;
+}
+
+.featuresIcons {
+    display: block;
+    flex-flow: row wrap;
+    padding-left: 10px;
+    border-bottom: 1px #c9c9c9 solid;
+}
+
+.toolsIcons input[type='radio'] {
+    display: none;
+}
+
+.toolsIcons input[type='radio']:checked + label {
+    background-color: #e2e20e;
+    .material-icons {
+        color: black;
+    }
+}
+
+button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    .undo-redo {
+        color: white;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}

@@ -1,0 +1,8 @@
+<div>
+    <mat-card>
+        <h2 class="toolName">{{ name }}</h2>
+        <button mat-raised-button [disabled]="!this.isPressed" matTooltip="Sélectionner Tout (Ctrl + A)" (click)="selectAll()">
+            <mat-icon id="select-all" class="material-icons">select_all</mat-icon>
+        </button>
+    </mat-card>
+</div>

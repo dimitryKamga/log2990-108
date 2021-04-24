@@ -12,6 +12,7 @@ export class IndexService {
     private readonly UPLOAD_BASE_URL: string = 'https://api.imgur.com/3/image';
     private readonly CLIENT_ID: string = '307d0081c03c455';
 
+    
     constructor(private http: HttpClient) {}
 
     getMetaData(): Observable<MetaData[]> {

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "log2990-108"
+  },
+  "targets": {
+    "log2990-108": {
+      "hosting": {
+        "client": [
+          "log2990-108"
+        ]
+      }
+    }
+  }
+}
